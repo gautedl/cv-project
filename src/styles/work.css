@@ -1,0 +1,17 @@
+.work-container {
+    width: 50%;
+}
+
+.job-container {
+    margin: 0px 20px;
+}
+
+ul {
+    list-style:circle;
+}
+
+.horisontal-line {
+    border-top: 4px rgba(103, 103, 194, 0.493) solid;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}

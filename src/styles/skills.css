@@ -1,0 +1,21 @@
+.skill-container {
+    width: 50%;
+}
+
+.horisontal-line {
+    border-top: 4px rgba(103, 103, 194, 0.493) solid;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.skill {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0px;
+}
+
+.skill-title {
+    font-size: 18px;
+    font-weight: 700;
+}

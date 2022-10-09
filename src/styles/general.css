@@ -28,3 +28,11 @@ a {
     display: flex;
     gap: 10px;
 }
+
+.profile-image {
+    height: 200px;
+    cursor: pointer;
+}
+
+
+

@@ -2,7 +2,7 @@ import { General } from './components/General';
 import { Work } from './components/Work';
 import { Education } from './components/Education';
 import './styles/style.css';
-import { Skill } from './components/Skill';
+import { Skills } from './components/Skills';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <General />
       <Work />
       <Education />
-      <Skill />
+      <Skills />
     </div>
   );
 }

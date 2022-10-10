@@ -4,6 +4,7 @@
 
 .job-container {
     margin: 0px 20px;
+    position: relative;
 }
 
 ul {
@@ -14,4 +15,10 @@ ul {
     border-top: 4px rgba(103, 103, 194, 0.493) solid;
     margin-top: -15px;
     margin-bottom: 15px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

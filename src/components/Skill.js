@@ -3,7 +3,7 @@ import { ElementMaker, ElementMakerTextField } from './ElementMaker';
 import { useState } from 'react';
 import { Button } from './Button';
 
-export const Skill = () => {
+export const Skill = ({ showEditPage }) => {
   const [visible, setVisible] = useState(true);
 
   const [skill, setSkill] = useState('Javascript');
@@ -21,6 +21,7 @@ export const Skill = () => {
         <div className="skill">
           <p>
             <ElementMaker
+              showEditPage={showEditPage}
               className="skill-title"
               type="text"
               value={skill}
@@ -32,6 +33,7 @@ export const Skill = () => {
           </p>
           <p>
             <ElementMakerTextField
+              showEditPage={showEditPage}
               className="description"
               value={description}
               cols={105}
@@ -42,7 +44,13 @@ export const Skill = () => {
               showInputEle={showInputDescription}
             />
           </p>
-          <Button text="Delete Skill" handleClick={handleClick} />
+          {showEditPage && (
+            <Button
+              className="delete-button"
+              text="Delete Skill"
+              handleClick={handleClick}
+            />
+          )}
         </div>
       )}
     </>

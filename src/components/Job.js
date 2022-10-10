@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '../styles/work.css';
 import { Button } from './Button';
 
-export const Job = () => {
+export const Job = ({ showEditPage }) => {
   const [visible, setVisible] = useState(true);
 
   const [startYear, setStartYear] = useState('2020');
@@ -31,6 +31,7 @@ export const Job = () => {
         <div className="job-container">
           <div>
             <ElementMaker
+              showEditPage={showEditPage}
               type="number"
               value={startYear}
               handleChange={(e) => setStartYear(e.target.value)}
@@ -40,6 +41,7 @@ export const Job = () => {
             />
             -
             <ElementMaker
+              showEditPage={showEditPage}
               type="number"
               value={endYear}
               handleChange={(e) => setEndYear(e.target.value)}
@@ -49,6 +51,7 @@ export const Job = () => {
             />
             {', '}
             <ElementMaker
+              showEditPage={showEditPage}
               type="text"
               value={firm}
               handleChange={(e) => setFirm(e.target.value)}
@@ -59,6 +62,7 @@ export const Job = () => {
           </div>
           <div>
             <ElementMaker
+              showEditPage={showEditPage}
               type="text"
               value={jobTitle}
               handleChange={(e) => setJobTitle(e.target.value)}
@@ -70,6 +74,7 @@ export const Job = () => {
           <ul>
             <li>
               <ElementMakerTextField
+                showEditPage={showEditPage}
                 value={description}
                 cols={105}
                 rows={4}
@@ -80,7 +85,13 @@ export const Job = () => {
               />
             </li>
           </ul>
-          <Button text="Delete Job" handleClick={handleClick} />
+          {showEditPage && (
+            <Button
+              className="delete-button"
+              text="Delete Job"
+              handleClick={handleClick}
+            />
+          )}
         </div>
       )}
     </>

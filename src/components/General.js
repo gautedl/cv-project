@@ -3,7 +3,7 @@ import { ElementMaker } from './ElementMaker';
 import React, { useState } from 'react';
 import profpic from '../img/profpic.jpg';
 
-export const General = () => {
+export const General = ({ showEditPage }) => {
   const [fullName, setFullName] = useState('Navn Navnesen');
   const [showInputEle, setShowInputEle] = useState(false);
 
@@ -24,6 +24,9 @@ export const General = () => {
 
   const [image, setImage] = useState({ preview: '', raw: '' });
 
+  const [imageDiv, setImageDiv] = useState('');
+  const [counter, setCounter] = useState(0);
+
   const handleChange = (e) => {
     if (e.target.files.length) {
       setImage({
@@ -33,11 +36,43 @@ export const General = () => {
     }
   };
 
+  if (!showEditPage && counter === 1) {
+    setImageDiv(
+      <div className="pic-container">
+        <img className="profile-image" src={profpic} alt="pic" />
+      </div>
+    );
+    setCounter(0);
+  } else if (showEditPage && counter === 0) {
+    setImageDiv(
+      <div className="pic-container">
+        <label htmlFor="upload-button">
+          {image.preview ? (
+            <img src={image.preview} alt="dummy" className="profile-image" />
+          ) : (
+            <>
+              <img className="profile-image" src={profpic} alt="pic" />
+            </>
+          )}
+        </label>
+        <input
+          type="file"
+          id="upload-button"
+          style={{ display: 'none' }}
+          onChange={handleChange}
+        />
+      </div>
+    );
+
+    setCounter(1);
+  }
+
   return (
     <div className="wrapper">
       <div className="container">
         <div className="info-container">
           <ElementMaker
+            showEditPage={showEditPage}
             className="title"
             type="text"
             value={fullName}
@@ -50,6 +85,7 @@ export const General = () => {
           <p className="info">
             Adresse:{' '}
             <ElementMaker
+              showEditPage={showEditPage}
               className=""
               type="text"
               value={streetAdress}
@@ -59,6 +95,7 @@ export const General = () => {
               showInputEle={showInputAdr}
             />{' '}
             <ElementMaker
+              showEditPage={showEditPage}
               className=""
               type="text"
               value={zip}
@@ -68,6 +105,7 @@ export const General = () => {
               showInputEle={showInputZip}
             />{' '}
             <ElementMaker
+              showEditPage={showEditPage}
               className=""
               type="text"
               value={city}
@@ -81,6 +119,7 @@ export const General = () => {
           <p className="info">
             TLF:{' '}
             <ElementMaker
+              showEditPage={showEditPage}
               className=""
               type="number"
               value={TLF}
@@ -93,6 +132,7 @@ export const General = () => {
           <p className="info">
             Mail:{' '}
             <ElementMaker
+              showEditPage={showEditPage}
               className=""
               type="text"
               value={mail}
@@ -110,23 +150,7 @@ export const General = () => {
             </a>
           </div>
         </div>
-        <div className="pic-container">
-          <label htmlFor="upload-button">
-            {image.preview ? (
-              <img src={image.preview} alt="dummy" className="profile-image" />
-            ) : (
-              <>
-                <img className="profile-image" src={profpic} alt="pic" />
-              </>
-            )}
-          </label>
-          <input
-            type="file"
-            id="upload-button"
-            style={{ display: 'none' }}
-            onChange={handleChange}
-          />
-        </div>
+        {imageDiv}
       </div>
     </div>
   );

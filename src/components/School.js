@@ -3,7 +3,7 @@ import { ElementMaker, ElementMakerTextField } from './ElementMaker';
 import { useState } from 'react';
 import { Button } from './Button';
 
-export const School = () => {
+export const School = ({ showEditPage }) => {
   const [visible, setVisible] = useState(true);
 
   const [description, setDescription] = useState(
@@ -30,6 +30,7 @@ export const School = () => {
         <div className="school-container">
           <div>
             <ElementMaker
+              showEditPage={showEditPage}
               type="number"
               value={startYear}
               handleChange={(e) => setStartYear(e.target.value)}
@@ -39,6 +40,7 @@ export const School = () => {
             />
             -
             <ElementMaker
+              showEditPage={showEditPage}
               type="number"
               value={endYear}
               handleChange={(e) => setEndYear(e.target.value)}
@@ -48,6 +50,7 @@ export const School = () => {
             />
             {', '}
             <ElementMaker
+              showEditPage={showEditPage}
               type="text"
               value={school}
               handleChange={(e) => setSchool(e.target.value)}
@@ -59,6 +62,7 @@ export const School = () => {
           <ul>
             <li>
               <ElementMakerTextField
+                showEditPage={showEditPage}
                 value={description}
                 cols={105}
                 rows={4}
@@ -69,7 +73,13 @@ export const School = () => {
               />
             </li>
           </ul>
-          <Button text="Delete Education" handleClick={handleClick} />
+          {showEditPage && (
+            <Button
+              className="delete-button"
+              text="Delete Education"
+              handleClick={handleClick}
+            />
+          )}
         </div>
       )}
     </>

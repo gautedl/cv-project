@@ -1,5 +1,6 @@
 .skill-container {
-    width: 75%;
+    width: 60%;
+    
 }
 
 .horisontal-line {
@@ -12,8 +13,9 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    margin: 0px 10px;
+    margin: 0px 40px;
     position: relative;
+
 }
 
 .skill-title {

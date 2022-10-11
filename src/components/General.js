@@ -22,6 +22,15 @@ export const General = ({ showEditPage }) => {
   const [mail, setMail] = useState('test@mail.no');
   const [showInputMail, setShowInputMail] = useState(false);
 
+  const [website, setWebsite] = useState('Website');
+  const [showInputWebsite, setShowInputWebsite] = useState(false);
+
+  const [github, setGithub] = useState('Github');
+  const [showInputGithub, setShowInputGithub] = useState(false);
+
+  const [linkedin, setLinkedin] = useState('LinkedIn');
+  const [showInputLinkedin, setShowInputLinkedin] = useState(false);
+
   const [image, setImage] = useState({ preview: '', raw: '' });
 
   const [imageDiv, setImageDiv] = useState('');
@@ -143,11 +152,36 @@ export const General = ({ showEditPage }) => {
             />
           </p>
           <div className="link-div">
-            <a href="#https://www.gautelorentsen.no/">Website</a>
-            <a href="#https://github.com/gautedl">Github</a>
-            <a href="#https://www.linkedin.com/in/gaute-lorentsen-968589152/">
-              LinkedIn
-            </a>
+            <ElementMaker
+              showEditPage={showEditPage}
+              className=""
+              type="text"
+              value={website}
+              handleChange={(e) => setWebsite(e.target.value)}
+              handleDoubleClick={() => setShowInputWebsite(true)}
+              handleBlur={() => setShowInputWebsite(false)}
+              showInputEle={showInputWebsite}
+            />
+            <ElementMaker
+              showEditPage={showEditPage}
+              className=""
+              type="text"
+              value={github}
+              handleChange={(e) => setGithub(e.target.value)}
+              handleDoubleClick={() => setShowInputGithub(true)}
+              handleBlur={() => setShowInputGithub(false)}
+              showInputEle={showInputGithub}
+            />
+            <ElementMaker
+              showEditPage={showEditPage}
+              className=""
+              type="text"
+              value={linkedin}
+              handleChange={(e) => setLinkedin(e.target.value)}
+              handleDoubleClick={() => setShowInputLinkedin(true)}
+              handleBlur={() => setShowInputLinkedin(false)}
+              showInputEle={showInputLinkedin}
+            />
           </div>
         </div>
         {imageDiv}

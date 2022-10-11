@@ -27,10 +27,10 @@ function Document() {
 
     const pdf = new jsPDF();
     const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth() * 1.34;
+    const pdfWidth = pdf.internal.pageSize.getWidth() * 1.67;
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    pdf.addImage(data, 'PNG', -35, 0, pdfWidth, pdfHeight);
+    pdf.addImage(data, 'PNG', -70, 0, pdfWidth, pdfHeight);
     pdf.save('cv.pdf');
   };
   return (
